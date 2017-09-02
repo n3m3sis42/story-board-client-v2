@@ -1,0 +1,73 @@
+body {
+  background-color: #4dd0e1;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+textarea {
+  resize: none;
+  height: 90px;
+  font-size: 11px;
+}
+
+.Scenes-container {
+}
+
+.header {
+  text-align: center;
+  margin: 20px;
+  height: 60px;
+  padding: 20px;
+  background-color: #80deea;
+}
+
+.controls {
+  margin: 20px;
+  height: 20px;
+}
+
+.btn {
+  background-color: #283593;
+  color: #FFFFFF;
+  border: none;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 10px;
+  float: right;
+}
+
+.tile {
+  margin: 20px;
+  height: 150px;
+  width: 150px;
+  padding: 10px;
+  float: left;
+  font-size: 11px;
+  text-align: left;
+  background-color: #80deea;
+}
+
+.delete {
+  visibility: hidden;
+  float: right;
+  font-size: 14px;
+  cursor: pointer;
+  color: #283593;
+}
+
+.tile:hover .delete {
+  visibility: visible;
+}
+
+.input {
+  border: 0;
+  background: none;
+  outline: none;
+  margin-top: 10px;
+  width: 140px;
+  font-size: 11px;
+}
+
+.input:focus {
+  border: solid 1px #757575;
+}
