@@ -8,6 +8,7 @@ export default function(state = [], action) {
   switch (action.type) {
     case FETCH_SCENES:
       return action.payload.data
+    default:
+      return state
   }
-  return state
 }

@@ -3,6 +3,7 @@ const BASE_URL = 'http://localhost:3000/api/v1/scenes'
 
 export const SCENE_SELECTED = 'SCENE_SELECTED'
 export const FETCH_SCENES = 'FETCH_SCENES'
+export const CLEAR_NOTIFICATION = 'CLEAR_NOTIFICATION'
 
 export function selectScene(scene) {
   return {
@@ -18,4 +19,8 @@ export function fetchScenes(project) {
     type: FETCH_SCENES,
     payload: request
   }
+}
+
+export function clearNotification(notification) {
+  type: CLEAR_NOTIFICATION
 }
