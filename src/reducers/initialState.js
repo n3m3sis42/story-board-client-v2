@@ -1,6 +1,6 @@
 const initialState = {
   scenes: [],
-  activeScene: null,
+  activeScene: {},
   notification: ''
 }
 

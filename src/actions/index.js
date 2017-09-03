@@ -6,6 +6,7 @@ export const FETCH_SCENES = 'FETCH_SCENES'
 export const CLEAR_NOTIFICATION = 'CLEAR_NOTIFICATION'
 
 export function selectScene(scene) {
+  console.log("selectScene:", scene.title)
   return {
     type: SCENE_SELECTED,
     scene
@@ -22,5 +23,7 @@ export function fetchScenes(project) {
 }
 
 export function clearNotification(notification) {
-  type: CLEAR_NOTIFICATION
+  return {
+    type: CLEAR_NOTIFICATION
+  }
 }

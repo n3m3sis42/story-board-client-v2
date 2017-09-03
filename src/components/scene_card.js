@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { selectScene } from '../actions/index'
-import { bindActionCreators } from 'redux'
 
-class SceneCard extends Component {
+export default class SceneCard extends Component {
 
   handleClick = (scene) => {
+    console.log(this.props, scene)
+    // this.props.selectScene(scene)
     // NOTE uncomment this once I have a selectScene action
     // this.props.selectScene(scene)
   }
@@ -26,11 +26,3 @@ class SceneCard extends Component {
     )
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    activeScene: state.activeScene
-  }
-}
-
-export default connect(mapStateToProps)(SceneCard)
