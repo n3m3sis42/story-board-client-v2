@@ -6,7 +6,7 @@ import './App.css';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import reducers from './reducers';
 
 import SceneContainer from './containers/scene_container'
@@ -24,7 +24,9 @@ ReactDOM.render(
           <h1>Story Board</h1>
         </div>
         <SearchBar />
-        <Route path="/" component={SceneContainer} />
+        <Switch>
+          <Route path="/scenes" component={SceneContainer} />
+        </Switch>
       </div>
     </Router>
   </Provider>
