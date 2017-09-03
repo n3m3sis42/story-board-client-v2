@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import SceneCard from '../components/scene_card'
 import SceneForm from './scene_form'
 import { connect } from 'react-redux'
-import { fetchScenes } from '../actions'
-import { selectScene } from '../actions'
+import { bindActionCreators } from 'redux'
+import * as sceneActions from '../actions/scenes'
+import { selectScene } from '../actions/scenes'
 
 // TODO SceneContainer needs to be connected to the activeScene piece of state -- per Grider course, if multiple child components need access to a piece (like form and card), parent should be wired to Redux, not one/both child components
 
@@ -13,30 +14,15 @@ class SceneContainer extends Component {
 
   componentDidMount() {
     this.props.fetchScenes()
+    console.log(this.props)
   }
 
   addNewScene = () => {
-
+    this.props.createScene({title: '', notes: ''})
   }
-
-  // renderScene = (scene) => {
-  //   console.log(scene)
-  //   const id = scene.id
-  //
-  //   if (!this.props.activeScene) {
-  //     return <SceneCard key={id} scene={scene} />
-  //   }
-  //
-  //   return (
-  //     (scene === this.props.activeScene.id) ?
-  //     <SceneForm key={id} scene={scene} /> :
-  //     <SceneCard key={id} scene={scene} />
-  //   )
-  // }
 
  renderScenes = () => {
     return _.map(this.props.scenes, scene => {
-      console.log(scene)
       if (!this.props.activeScene) {
         return <SceneCard key={scene.id} scene={scene} />
       }
@@ -66,7 +52,7 @@ class SceneContainer extends Component {
           </span>
         </div>
         <div className="Scenes-container body">
-          {this.props.scenes ? this.renderScenes() : null}
+          {this.renderScenes()}
         </div>
       </div>
     )
@@ -74,8 +60,14 @@ class SceneContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  return {scenes: state.scenes }
+  return {
+    scenes: state.scenes,
+    activeScene: state.activeScene
+  }
 }
 
-// not mapping state to props and directly calling action creator instead of using mapDispatchToProps
-export default connect (mapStateToProps, { fetchScenes })(SceneContainer)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(sceneActions, dispatch)
+}
+
+export default connect (mapStateToProps, mapDispatchToProps)(SceneContainer)

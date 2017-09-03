@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchScenes } from '../actions/index'
 
-class SearchBar extends Component {
+export default class SearchBar extends Component {
 
   constructor(props) {
     super(props)
@@ -38,8 +37,8 @@ class SearchBar extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchScenes }, dispatch)
-}
-
-export default connect(null, mapDispatchToProps)(SearchBar)
+// function mapDispatchToProps(dispatch) {
+//   return bindActionCreators({ fetchScenes }, dispatch)
+// }
+//
+// export default connect(null, mapDispatchToProps)(SearchBar)

@@ -1,7 +1,6 @@
-import { SCENE_SELECTED } from '../actions/index'
-import initialState from './initialState'
+import { SCENE_SELECTED } from '../actions'
 
-export default function (state = initialState.activeScene, action) {
+export default function (state = {}, action) {
   console.log('selectScene', state)
   switch (action.type) {
     case SCENE_SELECTED:
