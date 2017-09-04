@@ -3,6 +3,7 @@ const BASE_URL = 'http://localhost:3000/api/v1/scenes'
 
 export const FETCH_SCENES = 'FETCH_SCENES'
 export const CREATE_SCENE = 'CREATE_SCENE'
+export const DELETE_SCENE = 'DELETE_SCENE'
 export const SCENE_SELECTED = 'SCENE_SELECTED'
 // export const CLEAR_NOTIFICATION = 'CLEAR_NOTIFICATION'
 
@@ -21,6 +22,15 @@ export function createScene(values) {
 
   return  {
     type: CREATE_SCENE,
+    payload: request
+  }
+}
+
+export function deleteScene(id) {
+  const request = axios.delete(`${BASE_URL}/${id}`)
+
+  return  {
+    type: DELETE_SCENE,
     payload: request
   }
 }

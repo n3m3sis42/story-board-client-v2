@@ -14,7 +14,6 @@ class SceneContainer extends Component {
 
   componentDidMount() {
     this.props.fetchScenes()
-    console.log(this.props)
   }
 
   addNewScene = () => {
@@ -24,13 +23,13 @@ class SceneContainer extends Component {
  renderScenes = () => {
     return _.map(this.props.scenes, scene => {
       if (!this.props.activeScene) {
-        return <SceneCard key={scene.id} scene={scene} />
+        return <SceneCard key={scene.id} scene={scene} deleteScene={this.props.deleteScene} />
       }
 
       return (
         (scene.id === this.props.activeScene.id) ?
         <SceneForm key={scene.id} scene={scene} /> :
-        <SceneCard key={scene.id} scene={scene} />
+        <SceneCard key={scene.id} scene={scene} deleteScene={this.props.deleteScene}/>
       )
     })
   }

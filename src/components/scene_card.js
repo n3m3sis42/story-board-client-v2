@@ -10,9 +10,8 @@ export default class SceneCard extends Component {
     // this.props.selectScene(scene)
   }
 
-  handleDelete = (id) => {
-    // NOTE uncomment this once I have a deleteScene action
-    // this.props.deleteScene(id)
+  handleDelete = () => {
+    this.props.deleteScene(this.props.scene.id)
   }
 
   render() {

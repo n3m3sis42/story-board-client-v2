@@ -3,6 +3,7 @@
 
 import { FETCH_SCENES } from '../actions/scenes'
 import { CREATE_SCENE } from '../actions/scenes'
+import { DELETE_SCENE } from '../actions/scenes'
 import _ from 'lodash'
 
 export default function(state = {}, action) {
@@ -10,7 +11,10 @@ export default function(state = {}, action) {
     case FETCH_SCENES:
       return _.mapKeys(action.payload.data, 'id')
     case CREATE_SCENE:
-      console.log(state.scenes, action)
+      console.log(state)
+      // return {...state, scenes: action.payload.data}
+    case DELETE_SCENE:
+      console.log(state)
     default:
       return state
   }
