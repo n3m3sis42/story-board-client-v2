@@ -3,6 +3,7 @@ const BASE_URL = 'http://localhost:3000/api/v1/scenes'
 
 export const FETCH_SCENES = 'FETCH_SCENES'
 export const CREATE_SCENE = 'CREATE_SCENE'
+export const UPDATE_SCENE = 'UPDATE_SCENE'
 export const DELETE_SCENE = 'DELETE_SCENE'
 export const SCENE_SELECTED = 'SCENE_SELECTED'
 
@@ -19,6 +20,15 @@ export function createScene(values) {
 
   return  {
     type: CREATE_SCENE,
+    payload: request
+  }
+}
+
+export function updateScene(scene) {
+  const request = axios.put(`${BASE_URL}/${scene.id}`, scene)
+
+  return  {
+    type: UPDATE_SCENE,
     payload: request
   }
 }

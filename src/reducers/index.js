@@ -4,9 +4,8 @@ import ActiveScene from './reducer_active_scene'
 import { reducer as formReducer } from 'redux-form'
 
 const rootReducer = combineReducers({
-  // scenes: ScenesReducer
   scenes: ScenesReducer,
-  // form: formReducer,
+  form: formReducer,
   activeScene: ActiveScene
 });
 

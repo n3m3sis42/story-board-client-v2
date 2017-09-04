@@ -1,43 +1,53 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { updateScene } from '../actions/scenes'
 
-const data = {
-  scene: {
+class SceneForm extends Component {
+
+  state = {
+    id: null,
     title: '',
     notes: ''
   }
-}
 
-export default class SceneForm extends Component {
-
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      title: this.props.scene.title,
-      notes: this.props.scene.notes
-    }
+  componentDidMount() {
+    this.textInput.focus()
+    const { id, title, notes } = this.props.activeScene
+    this.setState({ id, title, notes })
   }
 
-  handleInput = (event) => {
-    this.props.resetNotification()
-    this.setState({
-      [event.target.name]: event.target.value
-    })
+  focus() {
+    this.textInput.focus()
   }
 
   handleBlur = () => {
-    data.scene = {
-      title: this.state.title,
-      notes: this.state.notes
+    this.props.updateScene(this.state)
+  }
+
+  handleInput = (event) => {
+    // this.props.resetNotification()
+    this.setState({[event.target.name]: event.target.value})
+  }
+
+  onKeyPress = (event) => {
+    if (event.which === 13) {
+      event.preventDefault();
     }
-    this.props.updateScene(data)
   }
 
   render() {
     return (
       <div className="tile">
-        <form onBlur={this.handleBlur}>
-          <input className='input' type='text' name='title' placeholder='Enter title for scene...' value={this.state.title} onChange={this.handleInput} ref={this.props.titleRef} />
+        <form onBlur={this.handleBlur} onKeyPress={this.onKeyPress}>
+          <input
+            className='input'
+            type='text'
+            name='title'
+            ref = {(input) => {this.textInput = input}}
+            placeholder='Enter title for scene...'
+            value={this.state.title}
+            onChange={this.handleInput}
+          />
           <br />
           <br />
           <textarea className='input' type='text' name='notes' placeholder='Describe the scene...' value={this.state.notes} onChange={this.handleInput} ></textarea>
@@ -46,3 +56,5 @@ export default class SceneForm extends Component {
     )
   }
 }
+
+export default connect(null, { updateScene })(SceneForm)

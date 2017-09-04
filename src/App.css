@@ -71,3 +71,7 @@ textarea {
 .input:focus {
   border: solid 1px #757575;
 }
+
+.error-text {
+  color: red;
+}

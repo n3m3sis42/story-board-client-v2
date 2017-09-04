@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
 
 export default class SceneCard extends Component {
 
-  handleClick = () => {
+  handleClick = (event) => {
     this.props.selectScene(this.props.scene)
-    // this.props.selectScene(scene)
-    // NOTE uncomment this once I have a selectScene action
-    // this.props.selectScene(scene)
-  }
+    }
 
   handleDelete = () => {
     this.props.deleteScene(this.props.scene.id)

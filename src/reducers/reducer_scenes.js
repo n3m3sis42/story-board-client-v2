@@ -1,5 +1,6 @@
 import { FETCH_SCENES } from '../actions/scenes'
 import { CREATE_SCENE } from '../actions/scenes'
+import { UPDATE_SCENE } from '../actions/scenes'
 import { DELETE_SCENE } from '../actions/scenes'
 import _ from 'lodash'
 
@@ -11,7 +12,7 @@ export default function(state = {}, action) {
     case CREATE_SCENE:
       const {payload: {data}} = action
       // allows us to access data directly
-      console.log(data, state)
+    case UPDATE_SCENE:
       // return {...state, scenes: action.payload.data}
     case DELETE_SCENE:
       console.log(state)
