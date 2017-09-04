@@ -1,15 +1,7 @@
-export const SCENE_SELECTED = 'SCENE_SELECTED'
+export const CLEAR_NOTIFICATION = 'CLEAR_NOTIFICATION'
 
-export function selectScene(scene) {
-  console.log("selectScene:", scene.title)
+export function clearNotification(notification) {
   return {
-    type: SCENE_SELECTED,
-    scene
+    type: CLEAR_NOTIFICATION
   }
 }
-
-// export function clearNotification(notification) {
-//   return {
-//     type: CLEAR_NOTIFICATION
-//   }
-// }

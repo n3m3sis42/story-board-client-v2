@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 
 export default class SceneCard extends Component {
 
-  handleClick = (scene) => {
-    console.log(this.props, scene)
+  handleClick = () => {
+    this.props.selectScene(this.props.scene)
     // this.props.selectScene(scene)
     // NOTE uncomment this once I have a selectScene action
     // this.props.selectScene(scene)
@@ -15,12 +15,14 @@ export default class SceneCard extends Component {
   }
 
   render() {
-    const scene = this.props.scene
+    const { scene } = this.props
+    const { title, notes } = scene
+
     return (
       <div className="tile">
         <span className="delete" onClick={this.handleDelete}>x</span>
-        <h4 onClick={this.handleClick}>{scene.title}</h4>
-        <p onClick={this.handleClick}>{scene.notes}</p>
+        <h4 onClick={this.handleClick}>{scene ? title : null}</h4>
+        <p onClick={this.handleClick}>{scene ? notes : null}</p>
       </div>
     )
   }

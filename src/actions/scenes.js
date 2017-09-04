@@ -5,12 +5,9 @@ export const FETCH_SCENES = 'FETCH_SCENES'
 export const CREATE_SCENE = 'CREATE_SCENE'
 export const DELETE_SCENE = 'DELETE_SCENE'
 export const SCENE_SELECTED = 'SCENE_SELECTED'
-// export const CLEAR_NOTIFICATION = 'CLEAR_NOTIFICATION'
-
 
 export function fetchScenes(project) {
   const request = axios.get(BASE_URL)
-  console.log("in fetchScenes")
   return {
     type: FETCH_SCENES,
     payload: request
@@ -35,14 +32,13 @@ export function deleteScene(id) {
   }
 }
 
-// export function selectScene(scene) {
-//   console.log("selectScene:", scene.title)
-//   return {
-//     type: SCENE_SELECTED,
-//     scene
-//   }
-// }
-//
+export function selectScene(scene) {
+  return {
+    type: SCENE_SELECTED,
+    scene
+  }
+}
+
 // export function clearNotification(notification) {
 //   return {
 //     type: CLEAR_NOTIFICATION

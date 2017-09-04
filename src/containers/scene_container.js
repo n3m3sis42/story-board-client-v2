@@ -5,7 +5,7 @@ import SceneForm from './scene_form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as sceneActions from '../actions/scenes'
-import { selectScene } from '../actions/scenes'
+import { selectScene } from '../actions'
 
 class SceneContainer extends Component {
 
@@ -15,18 +15,15 @@ class SceneContainer extends Component {
 
   addNewScene = () => {
     this.props.createScene({title: '', notes: ''})
+    console.log(this.props)
   }
 
  renderScenes = () => {
     return _.map(this.props.scenes, scene => {
-      if (!this.props.activeScene) {
-        return <SceneCard key={scene.id} scene={scene} deleteScene={this.props.deleteScene} />
-      }
-
       return (
         (scene.id === this.props.activeScene.id) ?
-        <SceneForm key={scene.id} scene={scene} /> :
-        <SceneCard key={scene.id} scene={scene} deleteScene={this.props.deleteScene}/>
+        <SceneForm key={scene.id} scene={scene} {...this.props} /> :
+        <SceneCard key={scene.id} scene={scene} {...this.props} />
       )
     })
   }
