@@ -7,10 +7,7 @@ import { bindActionCreators } from 'redux'
 import * as sceneActions from '../actions/scenes'
 import { selectScene } from '../actions/scenes'
 
-// TODO SceneContainer needs to be connected to the activeScene piece of state -- per Grider course, if multiple child components need access to a piece (like form and card), parent should be wired to Redux, not one/both child components
-
 class SceneContainer extends Component {
-// TODO build this out again later so it renders the cards again like in v1, just trying to wire up Redux for now
 
   componentDidMount() {
     this.props.fetchScenes()
