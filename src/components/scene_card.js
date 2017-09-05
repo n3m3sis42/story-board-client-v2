@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 export default class SceneCard extends Component {
 
   handleClick = (event) => {
+    console.log(this.props.scene)
     this.props.selectScene(this.props.scene)
     }
 
   handleDelete = () => {
+    console.log(this.props)
     this.props.deleteScene(this.props.scene.id)
     this.props.unselectScene()
   }

@@ -5,23 +5,32 @@ import SceneForm from '../containers/scene_form'
 
 export default class Scene extends Component {
 
-  handleClick = (event) => {
-    this.props.selectScene(this.props.scene)
-    }
-
-  handleDelete = () => {
-    this.props.deleteScene(this.props.scene.id)
-    this.props.unselectScene()
-  }
+  // state = {
+  //   deltaPosition: {
+  //     x: 0, y: 0
+  //   }
+  // }
+  //
+  // handleDrag = (e, ui) => {
+  //   const { x, y }  = this.state.deltaPosition
+  //   this.setState({
+  //     deltaPosition: {
+  //       x: x + ui.deltaX
+  //     }
+  //   })
+  // }
 
   onDragStop = (e, ui) => {
-    const { lastX, lastY } = ui
+    const { lastX, lastY, deltaX, deltaY } = ui
+    console.log(this.props.scene, lastX, lastY, deltaX, deltaY)
     const data = {
       ...this.props.scene,
       x_coord: lastX,
       y_coord: lastY
     }
-    this.props.updateScene(data)
+    if (deltaX !== 0 || deltaY !== 0) {
+      this.props.updateScene(data)
+    }
   }
 
   render() {
@@ -33,14 +42,14 @@ export default class Scene extends Component {
       <Draggable
         axis="both"
         grid={[210, 210]}
-        key={scene.id}
+        key={id}
         defaultPosition={{x: x_coord, y: y_coord}}
         scene={scene}
         {...dragHandlers}>
           <div className="tile">
             {(id === activeScene.id) ?
               <SceneForm
-                key={id}
+                key={activeScene.id}
                 {...this.props}
               /> :
               <SceneCard
