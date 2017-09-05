@@ -16,10 +16,6 @@ class SceneForm extends Component {
     this.setState({ id, title, notes })
   }
 
-  focus() {
-    this.textInput.focus()
-  }
-
   handleBlur = () => {
     this.props.updateScene(this.state)
   }
@@ -37,22 +33,27 @@ class SceneForm extends Component {
 
   render() {
     return (
-      <div className="tile">
-        <form onBlur={this.handleBlur} onKeyPress={this.onKeyPress}>
-          <input
-            className='input'
-            type='text'
-            name='title'
-            ref = {(input) => {this.textInput = input}}
-            placeholder='Enter title for scene...'
-            value={this.state.title}
-            onChange={this.handleInput}
-          />
-          <br />
-          <br />
-          <textarea className='input' type='text' name='notes' placeholder='Describe the scene...' value={this.state.notes} onChange={this.handleInput} ></textarea>
-        </form>
-      </div>
+        <div>
+          <form onBlur={this.handleBlur} onKeyPress={this.onKeyPress}>
+            <input
+              className='input'
+              type='text'
+              name='title'
+              ref = {(input) => {this.textInput = input}}
+              value={this.state.title}
+              onChange={this.handleInput}
+            />
+            <br />
+            <br />
+            <textarea
+              className='input'
+              type='text'
+              name='notes'
+              value={this.state.notes}
+              onChange={this.handleInput} >
+            </textarea>
+          </form>
+        </div>
     )
   }
 }

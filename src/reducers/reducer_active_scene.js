@@ -1,9 +1,11 @@
 import { SCENE_SELECTED } from '../actions/scenes'
+import { SCENE_UNSELECTED } from '../actions/scenes'
 
 export default function (state = {}, action) {
   switch (action.type) {
     case SCENE_SELECTED:
-      console.log('selectScene', state, action)
+      return action.scene
+    case SCENE_UNSELECTED:
       return action.scene
     default:
       return state

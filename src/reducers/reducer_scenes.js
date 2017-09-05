@@ -7,18 +7,16 @@ import _ from 'lodash'
 export default function(state = {}, action) {
   switch (action.type) {
     case FETCH_SCENES:
-      console.log(state)
       return _.mapKeys(action.payload.data, 'id')
     case CREATE_SCENE:
+    case UPDATE_SCENE:
       const {payload: {data}} = action
       return {
         ...state,
         [data.id]: data
       }
-    case UPDATE_SCENE:
-      // return {...state, scenes: action.payload.data}
     case DELETE_SCENE:
-      console.log(state)
+      return _.omit(state, action.payload)    
     default:
       return state
   }

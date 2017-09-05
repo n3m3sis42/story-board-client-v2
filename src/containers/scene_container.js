@@ -1,7 +1,7 @@
 import _ from 'lodash'
+import Draggable from 'react-draggable'
 import React, { Component } from 'react';
-import SceneCard from '../components/scene_card'
-import SceneForm from './scene_form'
+import Scene from '../components/scene'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as sceneActions from '../actions/scenes'
@@ -13,21 +13,16 @@ class SceneContainer extends Component {
   }
 
   addNewScene = () => {
-    this.props.createScene({title: '', notes: ''})
+    this.props.createScene({title: 'Untitled Scene', notes: ''})
     console.log(this.props)
   }
 
  renderScenes = () => {
-    const { activeScene } = this.props
-    return _.map(this.props.scenes, scene => {
+    const { scenes } = this.props
+
+    return _.map(scenes, scene => {
       return (
-        (scene.id === activeScene.id) ?
-        <SceneForm
-          key={scene.id}
-          {...this.props}
-          titleRef={input => this.title = input}
-        /> :
-        <SceneCard
+        <Scene
           key={scene.id}
           scene={scene}
           {...this.props}

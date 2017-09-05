@@ -8,6 +8,7 @@ export default class SceneCard extends Component {
 
   handleDelete = () => {
     this.props.deleteScene(this.props.scene.id)
+    this.props.unselectScene()
   }
 
   render() {
@@ -15,11 +16,11 @@ export default class SceneCard extends Component {
     const { title, notes } = scene
 
     return (
-      <div className="tile">
-        <span className="delete" onClick={this.handleDelete}>x</span>
-        <h4 onClick={this.handleClick}>{scene ? title : null}</h4>
-        <p onClick={this.handleClick}>{scene ? notes : null}</p>
-      </div>
+        <div>
+          <span className="delete" onClick={this.handleDelete}>x</span>
+          <h4 onClick={this.handleClick}>{scene ? title : null}</h4>
+          <p onClick={this.handleClick}>{scene ? notes : null}</p>
+        </div>
     )
   }
 }
