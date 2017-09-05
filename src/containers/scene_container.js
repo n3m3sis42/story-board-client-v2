@@ -14,13 +14,10 @@ class SceneContainer extends Component {
 
   addNewScene = () => {
     this.props.createScene({title: 'Untitled Scene', notes: ''})
-    console.log(this.props)
   }
 
- renderScenes = () => {
-    const { scenes } = this.props
-
-    return _.map(scenes, scene => {
+  renderScenes = () => {
+    return _.map(this.props.scenes, scene => {
       return (
         <Scene
           key={scene.id}

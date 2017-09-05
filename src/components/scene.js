@@ -15,8 +15,7 @@ export default class Scene extends Component {
 
   render() {
     const { scene, activeScene } = this.props
-    const { id, title, notes } = scene
-    console.log(this.props)
+    const { id } = scene
 
     return (
       <div className="tile">

@@ -10,13 +10,14 @@ export default function(state = {}, action) {
       return _.mapKeys(action.payload.data, 'id')
     case CREATE_SCENE:
     case UPDATE_SCENE:
-      const {payload: {data}} = action
+      const { payload: { data } } = action
       return {
         ...state,
         [data.id]: data
       }
     case DELETE_SCENE:
-      return _.omit(state, action.payload)    
+      console.log(action.id)
+      return _.omit(state, action.id)
     default:
       return state
   }

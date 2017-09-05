@@ -39,7 +39,8 @@ export function deleteScene(id) {
 
   return  {
     type: DELETE_SCENE,
-    payload: request
+    payload: request,
+    id
   }
 }
 

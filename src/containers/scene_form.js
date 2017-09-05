@@ -32,6 +32,9 @@ class SceneForm extends Component {
   }
 
   render() {
+
+    const { title, notes } = this.state
+
     return (
         <div>
           <form onBlur={this.handleBlur} onKeyPress={this.onKeyPress}>
@@ -40,7 +43,7 @@ class SceneForm extends Component {
               type='text'
               name='title'
               ref = {(input) => {this.textInput = input}}
-              value={this.state.title}
+              value={title}
               onChange={this.handleInput}
             />
             <br />
@@ -49,7 +52,7 @@ class SceneForm extends Component {
               className='input'
               type='text'
               name='notes'
-              value={this.state.notes}
+              value={notes}
               onChange={this.handleInput} >
             </textarea>
           </form>
