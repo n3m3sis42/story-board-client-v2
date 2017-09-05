@@ -11,7 +11,10 @@ export default function(state = {}, action) {
       return _.mapKeys(action.payload.data, 'id')
     case CREATE_SCENE:
       const {payload: {data}} = action
-      // allows us to access data directly
+      return {
+        ...state,
+        [data.id]: data
+      }
     case UPDATE_SCENE:
       // return {...state, scenes: action.payload.data}
     case DELETE_SCENE:
