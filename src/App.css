@@ -11,6 +11,7 @@ textarea {
 }
 
 .Scenes-container {
+
 }
 
 .header {
@@ -34,6 +35,11 @@ textarea {
   cursor: pointer;
   padding: 10px;
   float: right;
+}
+
+.drag-bounds {
+  height: 1000px;
+  width: 1000px;
 }
 
 .tile {

@@ -16,7 +16,6 @@ export default function(state = {}, action) {
         [data.id]: data
       }
     case DELETE_SCENE:
-      console.log(action.id)
       return _.omit(state, action.id)
     default:
       return state
