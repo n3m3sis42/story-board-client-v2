@@ -12,7 +12,6 @@ export default class SceneCard extends Component {
   }
 
   render() {
-    console.log(this.props)
     const { scene } = this.props
     const { title, notes } = scene
 

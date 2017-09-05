@@ -12,7 +12,7 @@ class SceneContainer extends Component {
   }
 
   addNewScene = () => {
-    this.props.createScene({title: 'Untitled Scene', notes: ''})
+    this.props.createScene({title: 'Untitled Scene', notes: '', project_id: 1})
   }
 
   renderScenes = () => {
