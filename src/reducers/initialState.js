@@ -1,7 +1,6 @@
 const initialState = {
-  scenes: [],
-  activeScene: {},
-  notification: ''
+  scenes: {},
+  projects: {}
 }
 
 export default initialState

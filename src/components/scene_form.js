@@ -15,11 +15,13 @@ class SceneForm extends Component {
 
   componentDidMount() {
     this.textInput.focus()
-    const { id, title, notes, project_id, x_coord, y_coord } = this.props.activeScene
+    const { id, title, notes, project_id, x_coord, y_coord } = this.props.children
     this.setState({ id, title, notes, project_id, x_coord, y_coord })
   }
 
-  handleBlur = () => {
+  handleBlur = (event) => {
+    console.log(event.target.name, event.target.value)
+    // this.setState({[event.target.name]: event.target.value})
     this.props.updateScene(this.state)
   }
 
@@ -57,6 +59,7 @@ class SceneForm extends Component {
               value={notes}
               onChange={this.handleInput} >
             </textarea>
+            <span className="tile-btn" onClick={this.props.display}>DONE</span>
           </form>
         </div>
     )

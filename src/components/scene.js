@@ -1,47 +1,62 @@
 import React, { Component } from 'react';
 import Draggable from 'react-draggable'
+import SceneForm from './scene_form'
 import SceneCard from './scene_card'
-import SceneForm from '../containers/scene_form'
 
 export default class Scene extends Component {
 
-  // state = {
-  //   deltaPosition: {
-  //     x: 0, y: 0
-  //   }
-  // }
-  //
-  // handleDrag = (e, ui) => {
-  //   const { x, y }  = this.state.deltaPosition
-  //   this.setState({
-  //     deltaPosition: {
-  //       x: x + ui.deltaX
-  //     }
-  //   })
-  // }
+  state = {
+    editing: false,
+    dragging: false
+  }
+
+  edit = () => {
+    this.setState({ editing: true })
+  }
+
+  display = () => {
+    this.setState({ editing: false })
+  }
 
   onDragStart = (e, ui) => {
-    console.log(this.props)
+    this.setState({ dragging: true })
   }
 
   onDragStop = (e, ui) => {
+    this.setState({ dragging: false })
     const { lastX, lastY, deltaX, deltaY } = ui
-    console.log(this.props.scene, lastX, lastY, deltaX, deltaY)
+    console.log(lastX, lastY, deltaX, deltaY)
+    // TODO create method on back end to determine whether the new coords already contain a scene. if they do, card should snap back to its old location (x_coord, y_coord). else, save new location (which may be in separate coords model/using a separate redux action)
     const data = {
       ...this.props.scene,
       x_coord: lastX,
       y_coord: lastY
     }
-    console.log(data)
     if (deltaX !== 0 || deltaY !== 0) {
       this.props.updateScene(data)
     }
   }
 
+  renderDisplay = () => {
+    return (
+      <SceneCard {...this.props} edit={this.edit}>
+        {this.props.scene}
+      </SceneCard>
+    )
+  }
+
+  renderForm = () => {
+    return (
+      <SceneForm {...this.props} display={this.display}>
+        {this.props.scene}
+      </SceneForm>
+    )
+  }
+
   render() {
-    const { scene, activeScene } = this.props
-    const { id, x_coord, y_coord } = scene
+    const { scene: { id, x_coord, y_coord } } = this.props
     const dragHandlers = {onStop: this.onDragStop, onStart: this.onDragStart}
+    // TODO calculate this position on the back end and include it in the json fetched for the scene/project/board before we get in here
     const position = x_coord !== null || y_coord !== null ? {x: x_coord, y: y_coord} : null
 
     return (
@@ -50,17 +65,9 @@ export default class Scene extends Component {
         grid={[210, 210]}
         key={id}
         position={position}
-        scene={scene}
         {...dragHandlers}>
           <div className="tile">
-            {(id === activeScene.id) ?
-              <SceneForm
-                {...this.props}
-              /> :
-              <SceneCard
-                scene={scene}
-                {...this.props}
-              />}
+            {this.state.editing ? this.renderForm() : this.renderDisplay()}
           </div>
       </Draggable>
     )

@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import React, { Component } from 'react';
-import Scene from '../components/scene'
+import Scene from './scene'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as sceneActions from '../actions/scenes'
@@ -12,6 +12,7 @@ class SceneContainer extends Component {
   }
 
   addNewScene = () => {
+    // TODO call a method (probbably action on project reducer) that gets next available 210x210 px squre on the board/project
     this.props.createScene({title: 'Untitled Scene', notes: '', project_id: 1})
   }
 
@@ -53,8 +54,7 @@ class SceneContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    scenes: state.scenes,
-    activeScene: state.activeScene
+    scenes: state.scenes
   }
 }
 

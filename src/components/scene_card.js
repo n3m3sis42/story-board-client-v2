@@ -2,27 +2,24 @@ import React, { Component } from 'react';
 
 export default class SceneCard extends Component {
 
-  handleClick = (event) => {
-    console.log(this.props.scene)
-    this.props.selectScene(this.props.scene)
-    }
-
-  handleDelete = (event) => {
-    console.log(this.props)
+  delete = () => {
     this.props.deleteScene(this.props.scene.id)
-    // this.props.unselectScene()
+  }
+
+  edit = () => {
+    this.props.edit()
   }
 
   render() {
-    const { scene } = this.props
-    const { title, notes } = scene
+    const { id, title, notes } = this.props.children
 
     return (
-        <div>
-          <span className="delete" onClick={this.handleDelete}>x</span>
-          <h4 onClick={this.handleClick}>{scene ? title : null}</h4>
-          <p onClick={this.handleClick}>{scene ? notes : null}</p>
-        </div>
+      <div>
+        <span className="delete" onClick={this.delete}>x</span>
+        <h4>{title ? title : null}</h4>
+        <div className="tile-long-txt">{notes ? notes : null}</div>
+        <span className="tile-btn" onClick={this.edit}>EDIT</span>
+      </div>
     )
   }
 }

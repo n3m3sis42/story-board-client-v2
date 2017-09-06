@@ -7,7 +7,7 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import reducers from './reducers';
-import SceneContainer from './containers/scene_container'
+import SceneContainer from './components/scene_container'
 
 import registerServiceWorker from './registerServiceWorker';
 
