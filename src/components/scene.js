@@ -55,11 +55,9 @@ export default class Scene extends Component {
           <div className="tile">
             {(id === activeScene.id) ?
               <SceneForm
-                key={id}
                 {...this.props}
               /> :
               <SceneCard
-                key={id}
                 scene={scene}
                 {...this.props}
               />}
