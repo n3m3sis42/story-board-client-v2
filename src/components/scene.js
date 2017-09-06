@@ -20,6 +20,10 @@ export default class Scene extends Component {
   //   })
   // }
 
+  onDragStart = (e, ui) => {
+    console.log(this.props)
+  }
+
   onDragStop = (e, ui) => {
     const { lastX, lastY, deltaX, deltaY } = ui
     console.log(this.props.scene, lastX, lastY, deltaX, deltaY)
@@ -28,6 +32,7 @@ export default class Scene extends Component {
       x_coord: lastX,
       y_coord: lastY
     }
+    console.log(data)
     if (deltaX !== 0 || deltaY !== 0) {
       this.props.updateScene(data)
     }
@@ -36,20 +41,21 @@ export default class Scene extends Component {
   render() {
     const { scene, activeScene } = this.props
     const { id, x_coord, y_coord } = scene
-    const dragHandlers = {onStop: this.onDragStop}
+    const dragHandlers = {onStop: this.onDragStop, onStart: this.onDragStart}
+    const position = x_coord !== null || y_coord !== null ? {x: x_coord, y: y_coord} : null
 
     return (
       <Draggable
         axis="both"
         grid={[210, 210]}
         key={id}
-        defaultPosition={{x: x_coord, y: y_coord}}
+        position={position}
         scene={scene}
         {...dragHandlers}>
           <div className="tile">
             {(id === activeScene.id) ?
               <SceneForm
-                key={activeScene.id}
+                key={id}
                 {...this.props}
               /> :
               <SceneCard

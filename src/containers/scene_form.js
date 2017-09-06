@@ -8,13 +8,15 @@ class SceneForm extends Component {
     id: null,
     title: '',
     notes: '',
+    x_coord: null,
+    y_coord: null,
     project_id: 1
   }
 
   componentDidMount() {
     this.textInput.focus()
-    const { id, title, notes, project_id } = this.props.activeScene
-    this.setState({ id, title, notes, project_id })
+    const { id, title, notes, project_id, x_coord, y_coord } = this.props.activeScene
+    this.setState({ id, title, notes, project_id, x_coord, y_coord })
   }
 
   handleBlur = () => {

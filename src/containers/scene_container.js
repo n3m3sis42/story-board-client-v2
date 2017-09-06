@@ -11,7 +11,8 @@ class SceneContainer extends Component {
     this.props.fetchScenes()
   }
 
-  addNewScene = () => {
+  addNewScene = (e, ui) => {
+    console.log(e, ui)
     this.props.createScene({title: 'Untitled Scene', notes: '', project_id: 1})
   }
 

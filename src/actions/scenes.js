@@ -58,9 +58,3 @@ export function unselectScene() {
     scene
   }
 }
-
-// export function clearNotification(notification) {
-//   return {
-//     type: CLEAR_NOTIFICATION
-//   }
-// }
