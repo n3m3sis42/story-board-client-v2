@@ -64,7 +64,7 @@ export default class Scene extends Component {
         axis="both"
         grid={[210, 210]}
         key={id}
-        position={position}
+        defaultPosition={position}
         {...dragHandlers}>
           <div className="tile">
             {this.state.editing ? this.renderForm() : this.renderDisplay()}

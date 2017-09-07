@@ -12,20 +12,13 @@ class SceneContainer extends Component {
   }
 
   addNewScene = () => {
-    // TODO call a method (probbably action on project reducer) that gets next available 210x210 px squre on the board/project
-    this.props.createScene({title: 'Untitled Scene', notes: '', project_id: 1})
+    // TODO call renderScene from "Scenes-container body sidebar"
+    this.props.createScene({title: 'Untitled Card', notes: '', x_coord: 210, y_coord: -210, project_id: 1})
+    console.log("new scene", this.props)
   }
 
-  renderScenes = () => {
-    return _.map(this.props.scenes, scene => {
-      return (
-        <Scene
-          key={scene.id}
-          scene={scene}
-          {...this.props}
-        />
-    )
-    })
+  renderScene = (scene) => {
+    return (<Scene key={scene.id} scene={scene} {...this.props} />)
   }
 
   render() {
@@ -44,8 +37,13 @@ class SceneContainer extends Component {
             {this.props.notification}
           </span>
         </div>
-        <div className="Scenes-container body drag-bounds">
-          {this.renderScenes()}
+        <div className="Scenes-container body">
+          <div className="Scenes-container body story-board">
+            {_.map(this.props.scenes, scene => { return this.renderScene(scene) })}
+          </div>
+          <div className="Scenes-container body sidebar">
+
+          </div>
         </div>
       </div>
     )
@@ -53,9 +51,7 @@ class SceneContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    scenes: state.scenes
-  }
+  return { scenes: state.scenes }
 }
 
 function mapDispatchToProps(dispatch) {

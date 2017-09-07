@@ -38,9 +38,14 @@ textarea {
   float: right;
 }
 
-.drag-bounds {
-  height: 1000px;
-  width: 1000px;
+.story-board {
+  width: 80%;
+  float: left;
+}
+
+.sidebar {
+  width: 80%;
+  float: left;
 }
 
 .tile {
@@ -54,7 +59,7 @@ textarea {
   background-color: #80deea;
 }
 
-.delete {
+.tile-delete {
   visibility: hidden;
   float: right;
   font-size: 14px;
@@ -74,7 +79,7 @@ textarea {
   cursor: pointer;
 }
 
-.tile:hover .delete {
+.tile:hover .tile-delete {
   visibility: visible;
 }
 
@@ -82,7 +87,7 @@ textarea {
   height: 80px;
 }
 
-.input {
+.tile-input {
   border: 0;
   background: none;
   outline: none;
@@ -91,7 +96,7 @@ textarea {
   font-size: 11px;
 }
 
-.input:focus {
+.tile-input:focus {
   border: solid 1px #757575;
 }
 

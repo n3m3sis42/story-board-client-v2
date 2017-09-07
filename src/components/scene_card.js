@@ -15,7 +15,7 @@ export default class SceneCard extends Component {
 
     return (
       <div>
-        <span className="delete" onClick={this.delete}>x</span>
+        <span className="tile-delete" onClick={this.delete}>x</span>
         <h4>{title ? title : null}</h4>
         <div className="tile-long-txt">{notes ? notes : null}</div>
         <span className="tile-btn" onClick={this.edit}>EDIT</span>
