@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import Scene from './scene'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -13,7 +13,7 @@ class SceneContainer extends Component {
 
   addNewScene = () => {
     // TODO call renderScene from "Scenes-container body sidebar"
-    this.props.createScene({title: 'Untitled Card', notes: '', x_coord: 210, y_coord: -210, project_id: 1})
+    this.props.createScene({title: 'Untitled Card', notes: '', project_id: 1})
     console.log("new scene", this.props)
   }
 
@@ -37,7 +37,7 @@ class SceneContainer extends Component {
             {this.props.notification}
           </span>
         </div>
-        <div className="Scenes-container body">
+        <div className="Scenes-container body" id="scene-container">
           <div className="Scenes-container body story-board">
             {_.map(this.props.scenes, scene => { return this.renderScene(scene) })}
           </div>
