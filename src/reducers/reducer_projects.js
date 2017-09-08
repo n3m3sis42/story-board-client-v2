@@ -1,7 +1,6 @@
 import { FETCH_PROJECTS } from '../actions/projects'
 import { CREATE_PROJECT } from '../actions/projects'
 import { UPDATE_PROJECT } from '../actions/projects'
-import { DELETE_PROJECT } from '../actions/projects'
 import _ from 'lodash'
 
 export default function(state = {}, action) {
@@ -15,8 +14,6 @@ export default function(state = {}, action) {
         ...state,
         [data.id]: data
       }
-    case DELETE_PROJECT:
-      return _.omit(state, action.id)
     default:
       return state
   }

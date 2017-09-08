@@ -21,6 +21,16 @@ textarea {
   width:100%;
 }
 
+#project-container {
+  position:relative;
+}
+
+#project-container .Projects-container {
+  position:absolute;
+  top:0;
+  width:100%;
+}
+
 .header {
   text-align: center;
   margin: 20px;
@@ -111,6 +121,31 @@ textarea {
 
 .tile-input:focus {
   border: solid 1px #757575;
+}
+
+.project-list {
+  margin: 20px;
+  width: 40%;
+  max-width: 40%;
+  float: left;
+}
+
+
+.project-list-item {
+  float: left;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  font-size: 11px;
+  text-align: left;
+  background-color: #80deea;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.project-details {
+  width: 60%;
+  float: left;
 }
 
 .error-text {

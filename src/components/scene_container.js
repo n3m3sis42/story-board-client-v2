@@ -7,6 +7,8 @@ import * as sceneActions from '../actions/scenes'
 
 class SceneContainer extends Component {
 
+  // TODO might make more sense to refactor this so we fetch the scenes only on the project action/reducer -- then we don't have to call the scene fetch here and we can bind the actions to create/delete/edit scenes to the Scene component instead of this container -- not sure yet if the store would still need to be on the SceneContainer or if it should be on Scene as well
+
   componentDidMount() {
     this.props.fetchScenes()
   }

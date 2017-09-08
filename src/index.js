@@ -8,6 +8,7 @@ import ReduxPromise from 'redux-promise'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import reducers from './reducers';
 import SceneContainer from './components/scene_container'
+import ProjectContainer from './components/project_container'
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -22,6 +23,7 @@ ReactDOM.render(
         </div>
         <Switch>
           <Route path="/scenes" component={SceneContainer} />
+          <Route path="/projects" component={ProjectContainer} />
         </Switch>
       </div>
     </Router>
