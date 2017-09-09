@@ -2,7 +2,7 @@ import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as projectActions from '../actions/projects'
+import * as projectActions from '../../actions/projects'
 import Project from './project'
 import ProjectForm from './project_form'
 
@@ -15,7 +15,7 @@ class ProjectContainer extends Component {
   addNewProject = () => {
     // NOTE not sure if this should render the form in the sidebar or just add another project to the list and let user edit it inline like we do with the scene card.
 
-    // i like the above idea but then having an update form on the righthand side to add characters to the project etc 
+    // i like the above idea but then having an update form on the righthand side to add characters to the project etc
 
   }
 
@@ -27,23 +27,26 @@ class ProjectContainer extends Component {
     console.log(this.props.projects)
 
     return (
-      <div className="Projects-container">
+      <div >
         <div className="Projects-container header">
           <h3>Projects</h3>
         </div>
-        <div className="Projects-container controls">
+        <div className="controls">
           <button className="Projects-container btn" onClick={this.addNewProject} >
             +
           </button>
-          <span className="Projects-container notification">
+          <span className= "notification">
             {this.props.notification}
           </span>
         </div>
-        <div className="Projects-container body" id="project-container">
-          <div className="Projects-container body project-list">
+        <div className="body" id="project-container">
+          <div className="project-list-left">
             {_.map(this.props.projects, project => { return this.renderProject(project) })}
           </div>
-          <div className="Projects-container body project-details">
+          <div className="project-details-right">
+            <div className="project-details-item">
+              <ProjectForm />
+            </div>
           </div>
         </div>
       </div>

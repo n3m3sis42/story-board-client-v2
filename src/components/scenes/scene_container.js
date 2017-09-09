@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Scene from './scene'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as sceneActions from '../actions/scenes'
+import * as sceneActions from '../../actions/scenes'
 
 class SceneContainer extends Component {
 

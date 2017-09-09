@@ -5,8 +5,6 @@ export const FETCH_SCENES = 'FETCH_SCENES'
 export const CREATE_SCENE = 'CREATE_SCENE'
 export const UPDATE_SCENE = 'UPDATE_SCENE'
 export const DELETE_SCENE = 'DELETE_SCENE'
-export const SCENE_SELECTED = 'SCENE_SELECTED'
-export const SCENE_UNSELECTED = 'SCENE_UNSELECTED'
 
 export function fetchScenes(project) {
   const request = axios.get(BASE_URL)
@@ -41,20 +39,5 @@ export function deleteScene(id) {
     type: DELETE_SCENE,
     payload: request,
     id
-  }
-}
-
-export function selectScene(scene) {
-  return {
-    type: SCENE_SELECTED,
-    scene
-  }
-}
-
-export function unselectScene() {
-  let scene = {}
-  return {
-    type: SCENE_UNSELECTED,
-    scene
   }
 }

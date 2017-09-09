@@ -2,18 +2,18 @@ import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { createProject } from '../actions/projects'
+import { createProject } from '../../actions/projects'
 
 class ProjectForm extends Component {
 
   renderField(field) {
     const { meta: { touched, error } } = field
-    const className = `tile ${touched && error ? 'error-text' : ''}`
+    const className = `${touched && error ? 'error-text' : ''}`
     return (
       <div>
         <label>{field.label}</label>
         <input
-          className="input"
+          className="form-input"
           type="text"
           placeholder={field.placeholder}
           {...field.input}
@@ -55,8 +55,8 @@ class ProjectForm extends Component {
           name="content"
           component={this.renderField}
         />
-        <button type="submit" className="btn btn-primary">Submit</button>
-        <Link to="/" className="btn btn-danger">Cancel</Link>
+        <button type="submit" className="btn form-btn">Submit</button>
+        <Link to="/" className="btn form-btn">Cancel</Link>
       </form>
     )
   }

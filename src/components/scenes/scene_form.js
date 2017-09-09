@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateScene } from '../actions/scenes'
+import { updateScene } from '../../actions/scenes'
 
 class SceneForm extends Component {
 

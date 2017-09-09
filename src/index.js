@@ -4,28 +4,19 @@ import './index.css'
 import './App.css';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk'
 import ReduxPromise from 'redux-promise'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import reducers from './reducers';
-import SceneContainer from './components/scene_container'
-import ProjectContainer from './components/project_container'
-
+import App from './components/app'
 import registerServiceWorker from './registerServiceWorker';
 
-const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise, ReduxThunk)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <Router>
-      <div className="App">
-        <div className="App header">
-          <h1>Story Board</h1>
-        </div>
-        <Switch>
-          <Route path="/scenes" component={SceneContainer} />
-          <Route path="/projects" component={ProjectContainer} />
-        </Switch>
-      </div>
+      <App />
     </Router>
   </Provider>
   , document.getElementById('root'));
