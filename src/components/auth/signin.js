@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as authActions from '../../actions/auth'
 
-class Login extends Component {
+class SignIn extends Component {
 
   renderAlert() {
     if (this.props.errorMessage) {
@@ -86,5 +86,5 @@ export default reduxForm({
   form: 'SignInForm',
 })
 (
-  connect(mapStateToProps, authActions)(Login)
+  connect(mapStateToProps, authActions)(SignIn)
 )

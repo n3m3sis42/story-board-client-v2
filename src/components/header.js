@@ -1,18 +1,44 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 
 class Header extends Component {
+
+//TODO add styling -- see React Router Training for NavLink props
+
+  renderLinks = () => {
+    if (this.props.authenticated) {
+      return (
+        <div className="navbar-item">
+          <NavLink to="/logout">Sign Out</NavLink>
+        </div>
+      )
+    } else {
+      return ([
+        <div className="navbar-item">
+          <NavLink to="/login">Sign In</NavLink>
+        </div>,
+        <div className="navbar-item">
+          <NavLink to="/signup">Sign Up</NavLink>
+        </div>
+      ])
+    }
+  }
 
   render() {
     return (
         <nav className="navbar">
-          <ul className="nav-list">
-            <li className="nav-item">
-              Sign In
-            </li>
-          </ul>
+          <NavLink to="/">Home</NavLink>
+            <div>
+              {this.renderLinks()}
+            </div>
         </nav>
     )
   }
 }
 
-export default Header
+function mapStateToProps(state) {
+  return { authenticated: state.auth.authenticated }
+}
+
+export default connect(mapStateToProps)(Header)

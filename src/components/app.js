@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Header from './header'
 import SceneContainer from './scenes/scene_container'
 import ProjectContainer from './projects/project_container'
-import Login from './auth/login'
+import SignIn from './auth/signin'
 
 export default class App extends Component {
 
@@ -16,7 +16,7 @@ export default class App extends Component {
           </div>
           <Switch>
             <Route exact path="/" component={ProjectContainer} />
-            <Route path="/login" component={Login} />
+            <Route path="/login" component={SignIn} />
             <Route path="/scenes" component={SceneContainer} />
             <Route path="/projects" component={ProjectContainer} />
           </Switch>

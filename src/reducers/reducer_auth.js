@@ -10,7 +10,6 @@ export default function(state = {}, action) {
     case UNAUTH_USER:
       return { ...state, authenticated: false }
     case AUTH_ERROR:
-    console.log("error")
       return { ...state, error: action.payload }
     default:
       return state
