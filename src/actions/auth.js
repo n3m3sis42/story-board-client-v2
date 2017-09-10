@@ -18,7 +18,7 @@ export function createUser(data) {
   }
 }
 
-export function attemptLogin({ email, password }) {
+export function signUserIn({ email, password }) {
   // TODO get history.push  to work
 
   return (dispatch) => {
@@ -41,11 +41,7 @@ export function authError(error) {
   }
 }
 
-export function log_out() {
-// NOTE we don't make an API request here -- we just clear out localStorage (sessionStorage?!)
-  return {
-    type: LOG_OUT
-  }
+export function signUserOut() {
+  localStorage.removeItem('token')
+  return { type: UNAUTH_USER }
 }
-
-// NOTE write loginSuccess and loginFailure functions to be

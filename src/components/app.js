@@ -4,6 +4,7 @@ import Header from './header'
 import SceneContainer from './scenes/scene_container'
 import ProjectContainer from './projects/project_container'
 import SignIn from './auth/signin'
+import SignOut from './auth/signout'
 
 export default class App extends Component {
 
@@ -16,9 +17,10 @@ export default class App extends Component {
           </div>
           <Switch>
             <Route exact path="/" component={ProjectContainer} />
-            <Route path="/login" component={SignIn} />
+            <Route path="/signin" component={SignIn} />
             <Route path="/scenes" component={SceneContainer} />
             <Route path="/projects" component={ProjectContainer} />
+            <Route path="/signout" component={SignOut} />
           </Switch>
         </div>
       )

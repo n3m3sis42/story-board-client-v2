@@ -10,13 +10,13 @@ class Header extends Component {
     if (this.props.authenticated) {
       return (
         <div className="navbar-item">
-          <NavLink to="/logout">Sign Out</NavLink>
+          <NavLink to="/signout">Sign Out</NavLink>
         </div>
       )
     } else {
       return ([
         <div className="navbar-item">
-          <NavLink to="/login">Sign In</NavLink>
+          <NavLink to="/signin">Sign In</NavLink>
         </div>,
         <div className="navbar-item">
           <NavLink to="/signup">Sign Up</NavLink>

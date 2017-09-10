@@ -36,7 +36,7 @@ class SignIn extends Component {
   }
 
   onSubmit({ email, password }) {
-    this.props.attemptLogin({ email, password })
+    this.props.signUserIn({ email, password })
   }
 
   render() {
