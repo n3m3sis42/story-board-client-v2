@@ -6,10 +6,11 @@ import _ from 'lodash'
 export default function(state = {}, action) {
   switch (action.type) {
     case AUTH_USER:
-      return { ...state, authenticated: true }
+      return { ...state, error: '', authenticated: true }
     case UNAUTH_USER:
-      return { ...state, authenticated: false }
+      return { ...state, error: '', authenticated: false }
     case AUTH_ERROR:
+      console.log(action.payload)
       return { ...state, error: action.payload }
     default:
       return state

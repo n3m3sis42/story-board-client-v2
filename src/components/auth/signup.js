@@ -4,18 +4,10 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as authActions from '../../actions/auth'
 
-class SignIn extends Component {
-
-  // componentWillMount () {
-  //   console.log('Mounting')
-  //   if (localStorage.getItem('token')) this.props.history.push('/projects')
-  // }
-  // componentWillUpdate () {
-  //   console.log('Updating')
-  //   if (localStorage.getItem('token')) this.props.history.push('/projects')
-  // }
+class SignUp extends Component {
 
   renderAlert() {
+    console.log(this.props)
     if (this.props.errorMessage) {
       return (
         <div className='error-text'>
@@ -26,6 +18,8 @@ class SignIn extends Component {
   }
 
   renderField(field) {
+    const { meta: { touched, error } } = field
+    const className = `${touched && error ? 'error-text' : ''}`
     return (
       <div>
         <label>{field.label}</label>
@@ -35,14 +29,15 @@ class SignIn extends Component {
           placeholder={field.placeholder}
           {...field.input}
         />
+        <div className={className}>
+          {touched ? error : ''}
+        </div>
       </div>
     )
   }
 
-  onSubmit({ email, password }) {
-    console.log(this.props)
-    this.props.signUserIn({ email, password })
-    console.log(this.props)
+  onSubmit(values) {
+    this.props.signUserUp(values)
   }
 
   render() {
@@ -61,11 +56,39 @@ class SignIn extends Component {
           type="password"
           component={this.renderField}
         />
+        <Field
+          label="Confirm Password: "
+          name="passwordConfirm"
+          type="password"
+          component={this.renderField}
+        />
         {this.renderAlert()}
-        <button type="submit" className="btn form-btn">Sign In</button>
+        <button type="submit" className="btn form-btn">Sign Up!</button>
       </form>
     )
   }
+}
+
+function validate(values) {
+  const errors = {}
+
+  if (values.password !== values.passwordConfirm) {
+    errors.password = 'Passwords must match'
+  }
+
+  if (!values.email) {
+    errors.email = 'Please enter an email'
+  }
+
+  if (!values.password) {
+    errors.password = 'Please enter a password'
+  }
+
+  if (!values.passwordConfirm) {
+    errors.passwordConfirm = 'Please re-enter your password'
+  }
+
+  return errors
 }
 
 function mapStateToProps(state) {
@@ -73,8 +96,8 @@ function mapStateToProps(state) {
 }
 
 export default reduxForm({
-  form: 'SignInForm'
+  form: 'SignUpForm'
 })
 (
-  connect(mapStateToProps, authActions)(SignIn)
+  connect(mapStateToProps, authActions)(SignUp)
 )
