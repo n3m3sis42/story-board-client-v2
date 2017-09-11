@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import { Route, Switch } from 'react-router-dom'
 import Header from './header'
+import Routes from './routes'
 // import SceneContainer from './scenes/scene_container'
 // import ProjectContainer from './projects/project_container'
 // import SignIn from './auth/signin'
@@ -16,7 +17,7 @@ export default class App extends Component {
           <div className="App header">
             <h1>Story Board</h1>
           </div>
-
+            <Routes />
         </div>
       )
     }
