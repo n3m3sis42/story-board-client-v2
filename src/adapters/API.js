@@ -5,7 +5,7 @@ const headers = {
   headers: { Authorization: `Token token=${localStorage.getItem('token')}` }
 }
 
-const API = {  
+const API = {
   get(url, options = {}) {
     return axios.get(url, _.merge(options, headers))
   },
