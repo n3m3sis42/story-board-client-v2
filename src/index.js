@@ -5,7 +5,6 @@ import './App.css';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk'
-// import ReduxPromise from 'redux-promise'
 import { BrowserRouter as Router } from 'react-router-dom'
 import reducers from './reducers';
 import App from './components/app'

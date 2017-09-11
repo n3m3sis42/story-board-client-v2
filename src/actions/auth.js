@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+import API from '../adapters/api'
 
 const BASE_URL = 'http://localhost:3000/api/v1'
 
@@ -7,37 +7,30 @@ export const AUTH_USER = 'AUTH_USER'
 export const UNAUTH_USER = 'UNAUTH_USER'
 export const AUTH_ERROR = 'AUTH_ERROR'
 
-export function signUserUp({ email, password }) {
-  // TODO get history.push  to work
-
-  return (dispatch) => {
-    axios.post(`${BASE_URL}/signup`, { user: { email, password }})
-      .then(response => {
+export function sendAuthRequest(url, data = {}, message) {
+  return function (dispatch) {
+    API.post(url, data)
+    .then(response => {
         dispatch({ type: AUTH_USER })
         localStorage.setItem('token', response.data.jwt)
-        // this.propshistory.push('/projects')
       })
-      .catch((response) => {
-        dispatch(authError(response))
+      .catch(response => {
+        let error = message ? message : response
+        console.log(error)
+        dispatch(authError(error))
       })
   }
 }
 
+export function signUserUp({ email, password }) {
+  let url = `${BASE_URL}/signup`
+  return sendAuthRequest(url, {user: { email, password }})
+}
+
 export function signUserIn({ email, password }) {
-  // TODO get history.push  to work
-
-  return (dispatch) => {
-
-    axios.post(`${BASE_URL}/login`, { email, password })
-      .then(response => {
-        dispatch({ type: AUTH_USER })
-        localStorage.setItem('token', response.data.jwt)
-        // // this.props.history.push('/projects')
-      })
-      .catch(() => {
-        dispatch(authError('Login failed. Please check your email and password and try again.'))
-      })
-  }
+  let url = `${BASE_URL}/login`
+  let message = "Login failed. Please check your email and password and try again."
+  return sendAuthRequest(url, { email, password }, message)
 }
 
 export function authError(error) {
