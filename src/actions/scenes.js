@@ -1,4 +1,5 @@
 import axios from 'axios'
+import API from '../adapters/api'
 const BASE_URL = 'http://localhost:3000/api/v1/scenes'
 
 export const FETCH_SCENES = 'FETCH_SCENES'
@@ -7,19 +8,31 @@ export const UPDATE_SCENE = 'UPDATE_SCENE'
 export const DELETE_SCENE = 'DELETE_SCENE'
 
 export function fetchScenes(project) {
-  const request = axios.get(BASE_URL)
-  return {
-    type: FETCH_SCENES,
-    payload: request
+  // TODO can i dispatch this after project fetch somehow
+  return function (dispatch) {
+    API.get(BASE_URL)
+    .then(response => {
+        dispatch({
+          type: FETCH_SCENES,
+          payload: response
+        })
+      })
+      // TODO code fetchError method
+      .catch(response => { console.log(response) })
   }
 }
 
 export function createScene(values) {
-  const request = axios.post(BASE_URL, values)
-
-  return  {
-    type: CREATE_SCENE,
-    payload: request
+  return function (dispatch) {
+    API.post(BASE_URL, values)
+    .then(response => {
+        dispatch({
+          type: CREATE_SCENE,
+          payload: response
+        })
+      })
+      // TODO code fetchError method
+      .catch(response => { console.log(response) })
   }
 }
 
