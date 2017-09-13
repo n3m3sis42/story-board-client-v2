@@ -8,9 +8,8 @@ export const UPDATE_SCENE = 'UPDATE_SCENE'
 export const DELETE_SCENE = 'DELETE_SCENE'
 
 
-export function fetchScenes(project) {
-  // TODO can i dispatch this after project fetch somehow
-  let url = BASE_URL
+export function fetchScenes(project_id) {
+  let url = `${BASE_URL}?project_id=${project_id}`
   return requests.sendGetRequest(url, FETCH_SCENES)
 }
 

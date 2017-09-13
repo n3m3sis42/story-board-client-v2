@@ -15,7 +15,7 @@ import SceneContainer from '../scenes/scene_container'
 class ProjectContainer extends Component {
 
   componentDidMount() {
-    this.props.fetchProjects()
+    this.props.fetchAllProjects()
   }
 
   addNewProject = () => {
@@ -32,9 +32,7 @@ class ProjectContainer extends Component {
 
   render() {
     console.log(this.props.match.params.id)
-    //<PrivateRoute path={'/projects/:id/scenes'} component={SceneContainer} />
-    // <PrivateRoute path={'/projects/:id'} component={SceneList} />
-    // <Route path="/projects" render={() => <ProjectList {...this.props} addNewProject={this.addNewProject} renderProject={this.renderProject} />}/>
+    console.log(this.props)
 
     return (
       <div>

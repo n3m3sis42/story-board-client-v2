@@ -4,6 +4,7 @@ export function sendGetRequest(url, actionType, data = {}) {
   return function (dispatch) {
     API.get(url)
     .then(response => {
+        console.log(response)
         dispatch({
           type: actionType,
           payload: response
