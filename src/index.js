@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css'
-import './App.css';
+import './stylesheets/index.css'
+import './stylesheets/App.css';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import ReduxThunk from 'redux-thunk'
 import { BrowserRouter as Router } from 'react-router-dom'
 import reducers from './reducers';
@@ -12,8 +12,10 @@ import Routes from './components/routes'
 import { AUTH_USER } from './actions/auth'
 import registerServiceWorker from './registerServiceWorker';
 
-const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore);
-const store = createStoreWithMiddleware(reducers)
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const enhancer = composeEnhancers(applyMiddleware(ReduxThunk))
+const store = createStore(reducers, enhancer);
+
 const token = localStorage.getItem('token')
 if (token) {
   store.dispatch({ type: AUTH_USER })

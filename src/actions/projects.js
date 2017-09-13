@@ -13,9 +13,9 @@ export function fetchProjects() {
   return requests.sendGetRequest(url, FETCH_PROJECTS)
 }
 
-export function createProject(values) {
+export function createProject(values, callback) {
   let url = BASE_URL
-  return requests.sendPostRequest(url, CREATE_PROJECT, values)
+  return requests.sendPostRequest(url, CREATE_PROJECT, values, callback)
 }
 
 export function updateProject(project) {

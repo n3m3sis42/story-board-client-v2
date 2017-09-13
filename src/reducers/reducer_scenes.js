@@ -11,10 +11,7 @@ export default function(state = {}, action) {
     case CREATE_SCENE:
     case UPDATE_SCENE:
       const { payload: { data } } = action
-      return {
-        ...state,
-        [data.id]: data
-      }
+      return { ...state, [data.id]: data }
     case DELETE_SCENE:
       return _.omit(state, action.id)
     default:

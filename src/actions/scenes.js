@@ -28,14 +28,3 @@ export function deleteScene(id) {
   let url = `${BASE_URL}/${id}`
   return requests.sendDeleteRequest(url, DELETE_SCENE, id)
 }
-
-// NOTE old delete code -- doesn't seem to be working either since I implemented auth
-// export function deleteScene(id) {
-//   const request = axios.delete(`${BASE_URL}/${id}`)
-//
-//   return  {
-//     type: DELETE_SCENE,
-//     payload: request,
-//     id
-//   }
-// }

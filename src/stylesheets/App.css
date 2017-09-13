@@ -2,13 +2,19 @@ body {
   background-color: #4dd0e1;
   margin-left: 20px;
   margin-right: 20px;
-
 }
 
 textarea {
   resize: none;
   height: 80px;
   font-size: 11px;
+}
+
+.navbar a {
+  display: inline;
+  float: left;
+  font-size: 18px;
+  padding: 0px 5px;
 }
 
 #scene-container {
@@ -44,7 +50,7 @@ textarea {
 
 .header {
   text-align: center;
-  margin: 20px;
+  margin: 20px 0px;
   height: 60px;
   padding: 20px;
   background-color: #80deea;
@@ -56,9 +62,10 @@ textarea {
 }
 
 .btn {
-  background-color: #283593;
+  background-color: #180040;
   color: #FFFFFF;
   border: none;
+  border-radius: 5px;
   font-size: 11px;
   cursor: pointer;
   padding: 10px;
@@ -72,9 +79,10 @@ textarea {
   height: 1000px;
 }
 
-.sidebar {
-  width: 80%;
+.story-board-sidebar-right {
+  width: 20%;
   float: left;
+  height: 1000px;
 }
 
 .tile-container {
@@ -102,12 +110,14 @@ textarea {
 }
 
 .tile-btn {
-  background-color: #283593;
+  background-color: #180040;
   color: #FFFFFF;
   border: none;
+  border-radius: 5px;
+  padding: 7px 10px;
+  /*box-shadow: 2px 2px 5px 0px #5600E5;*/
   float: right;
   font-size: 11px;
-  height: 15px;
   width: 30px;
   text-align: center;
   cursor: pointer;
@@ -135,15 +145,13 @@ textarea {
 }
 
 .project-list-item {
+  width: 90%;
   float: left;
-  padding: 20px;
-  width: 100%;
-  height: 100%;
   font-size: 11px;
   text-align: left;
   background-color: #80deea;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
+  padding: 20px;
 }
 
 .project-details {
@@ -154,13 +162,12 @@ textarea {
 .project-details-item {
   float: left;
   padding: 20px;
-  width: 100%;
+  width: 90%;
   height: 100%;
   font-size: 11px;
   text-align: left;
   background-color: #80deea;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
 }
 
 .form-input {
@@ -178,9 +185,10 @@ textarea {
 
 .form-btn {
   height: 30px;
-  width: 70px;
-  margin: 10px;
-  float: left;
+  width: 60px;
+  float: right;
+  background-color: #180040;
+  border-radius: 5px;
   text-align: center;
 }
 
