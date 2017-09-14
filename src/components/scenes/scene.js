@@ -19,7 +19,7 @@ export default class Scene extends Component {
   }
 
   onDragStop = (e, ui) => {
-    const { lastX, lastY, deltaX, deltaY } = ui
+    const { lastX, lastY, deltaX, deltaY, x, y } = ui
     console.log(lastX, lastY, ui.x, ui.y, e, ui)
     const data = { ...this.props.scene, x_coord: lastX, y_coord: lastY }
     if (deltaX !== 0 || deltaY !== 0) {
@@ -44,10 +44,20 @@ export default class Scene extends Component {
     )
   }
 
+  // absolutePosition = (scene) => {
+  //   return {
+  //     position: 'absolute',
+  //     bottom:
+  //   }
+  // }
+
   render() {
+    const scene = this.props
+    // this.startingPosition(scene)
     const { scene: { id, x_coord, y_coord } } = this.props
     const dragHandlers = {onStop: this.onDragStop, onStart: this.onDragStart}
     const position = (x_coord || y_coord) ? {x: x_coord, y: y_coord} : {x: null, y: null}
+    // const absolutePosition = scene.status === "Idea" ? this.absolutePosition(scene) : null
 
     return (
       <Draggable

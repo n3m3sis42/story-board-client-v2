@@ -24,16 +24,16 @@ textarea {
 #scene-container .Scenes-container {
   position:absolute;
   top:0;
-  width:100%;
+  width: 100%;
 }
 
 .project-list-left {
-  width:60%;
+  width: 35%;
   float:left;
 }
 
 .project-details-right {
-  width:35%;
+  width: 60%;
   float:left;
 }
 
@@ -74,7 +74,9 @@ textarea {
 
 .story-board {
   width: 80%;
-  max-width: 80%;
+  /*max-width: 80%;*/
+  max-width: 1000px;
+  overflow: scroll;
   float: left;
   height: 1000px;
   background-image: url('../images/bg-corkboard.jpg');
@@ -83,7 +85,8 @@ textarea {
 .story-board-sidebar-right {
   width: 20%;
   float: left;
-  height: 1000px;
+  max-height: 200px;
+  /*position: relative;  */
 }
 
 .tile-container {
@@ -91,6 +94,9 @@ textarea {
   padding: 20px;
   height: 150px;
   width: 150px;
+  /*position: absolute;
+  top: 0;
+  right: 0;*/
 }
 
 .tile {

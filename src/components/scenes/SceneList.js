@@ -7,7 +7,15 @@ import * as sceneActions from '../../actions/scenes'
 class SceneList extends React.Component {
 
   componentDidMount() {
+    console.log(this.props.match)
     this.props.fetchScenes(this.props.match.params.id)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.id !== this.props.match.params.id) {
+      console.log(nextProps.match.params.id)
+      this.props.fetchScenes(nextProps.match.params.id)
+    }
   }
 
   render() {

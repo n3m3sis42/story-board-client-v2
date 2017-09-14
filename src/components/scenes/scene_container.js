@@ -4,20 +4,32 @@ import Scene from './scene'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as sceneActions from '../../actions/scenes'
-import corkboardBackground from '../../images/bg-corkboard.jpg'
 
 class SceneContainer extends Component {
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchScenes(this.props.match.params.id)
   }
 
   addNewScene = () => {
-    const newScene = { title: 'New Scene', status: 'Idea', notes: '', project_id: 1 }
+    const projectId = this.props.match.params.id
+    const newScene = {
+      title: 'New Scene', status: 'Idea',
+      notes: '',
+      // x_coord: -720,
+      // y_coord: 0,
+      project_id: projectId
+    }
     this.props.createScene(newScene)
   }
 
+  getScreenPosition = (scene) => {
+    const { status, x_coord, y_coord } = scene
+    console.log(status, x_coord, y_coord)
+  }
+
   renderScene = (scene) => {
+    this.getScreenPosition(scene)
     return <Scene key={scene.id} scene={scene} {...this.props} />
   }
 

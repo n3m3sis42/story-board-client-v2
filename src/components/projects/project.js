@@ -8,6 +8,12 @@ export default class Project extends Component {
   //   this.props.history.push('/projects')
   // }
 
+  displayScenes = () => {
+    console.log(this.props)
+    const url = `/projects/${this.props.project.id}/scenes`
+    this.props.history.push(url)
+  }
+
   parseDate = (dateString) => {
     return dateString.match(/\d+?-\d+?-\d+/g)
   }
@@ -21,6 +27,7 @@ export default class Project extends Component {
           <p>{description ? description : null}</p>
           <p>Created on {created_at ? this.parseDate(created_at) : null}</p>
           <p>Last updated on {updated_at ? this.parseDate(updated_at) : null}</p>
+          <button type="button" className="btn" onClick={this.displayScenes}>SCENES</button>
         </div>
       )
     }

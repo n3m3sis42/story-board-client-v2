@@ -1,10 +1,15 @@
-import React, { Component } from 'react'
 import _ from 'lodash'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as sceneActions from '../../actions/scenes'
+
+// TODO copy in logic as needed from SceneList and also pass props instead of using params?
 
 export default class ProjectOutline extends Component {
 
   componentWillMount() {
-    console.log(this.props)
+    this.props.fetchScenes(this.props.match.params.id)
   }
 
   renderOutlineItem(scene) {
