@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Scene from './scene'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import Draggable from 'react-draggable'
 import * as sceneActions from '../../actions/scenes'
 
 class SceneContainer extends Component {
@@ -33,6 +34,28 @@ class SceneContainer extends Component {
     return <Scene key={scene.id} scene={scene} {...this.props} />
   }
 
+  onDragStop = () => {
+
+  }
+
+  newDraggable = (event) => {
+    return (
+      <Draggable
+        axis="both"
+        bounds={'.story-board'}
+        grid={[190, 190]}
+        key={1}
+        defaultPosition={{x: event.clientX, y: event.clientY}}
+        onStop={this.onDragStop}>
+          <div className="tile-container">
+            <div className="tile">
+              stuff
+            </div>
+          </div>
+      </Draggable>
+    )
+  }
+
   render() {
     return (
       <div>
@@ -61,7 +84,6 @@ class SceneContainer extends Component {
                   return this.renderScene(scene)
                 }
               })}
-
             </div>
           </div>
         </div>

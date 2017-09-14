@@ -44,20 +44,11 @@ export default class Scene extends Component {
     )
   }
 
-  // absolutePosition = (scene) => {
-  //   return {
-  //     position: 'absolute',
-  //     bottom:
-  //   }
-  // }
-
   render() {
     const scene = this.props
-    // this.startingPosition(scene)
     const { scene: { id, x_coord, y_coord } } = this.props
     const dragHandlers = {onStop: this.onDragStop, onStart: this.onDragStart}
     const position = (x_coord || y_coord) ? {x: x_coord, y: y_coord} : {x: null, y: null}
-    // const absolutePosition = scene.status === "Idea" ? this.absolutePosition(scene) : null
 
     return (
       <Draggable

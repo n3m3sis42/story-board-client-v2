@@ -6,8 +6,6 @@ import { bindActionCreators } from 'redux'
 import * as projectActions from '../../actions/projects'
 import Project from './project'
 import ProjectForm from './project_form'
-import ProjectOutline from './project_outline'
-
 import PrivateRoute from '../PrivateRoute'
 import SceneList from '../scenes/SceneList'
 import SceneContainer from '../scenes/scene_container'

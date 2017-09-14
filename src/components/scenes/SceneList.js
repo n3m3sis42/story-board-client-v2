@@ -13,16 +13,26 @@ class SceneList extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.id !== this.props.match.params.id) {
-      console.log(nextProps.match.params.id)
       this.props.fetchScenes(nextProps.match.params.id)
     }
   }
 
+  renderOutlineItem(scene) {
+    const { id, title, notes } = scene
+    return (
+      <li key={id} className="outline-item">
+        <strong><p>{title}</p></strong>
+        <div>{notes}</div>
+      </li>
+    )
+  }
+
   render() {
     console.log(this.props)
-    const items = _.map(this.props.scenes, scene => { return <li key={scene.id}>{scene.title}</li> })
+    const items = _.map(this.props.scenes, scene => {
+      return this.renderOutlineItem(scene) })
     return (
-      <ul>
+      <ul className='project-details-item'>
         {items}
       </ul>
 
