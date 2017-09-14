@@ -7,17 +7,17 @@ class Navbar extends Component {
   renderLinks = () => {
     if (this.props.authenticated) {
       return (
-      <div>
-        <NavLink to="/projects">Projects</NavLink>
-        <NavLink to="/signout">Sign Out</NavLink>
-      </div>
+      <span>
+        <NavLink to="/projects">PROJECTS</NavLink>
+        <NavLink to="/signout">SIGN OUT</NavLink>
+      </span>
     )
     } else {
       return (
-      <div>
-        <NavLink to="/signin">Sign In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
-      </div>
+      <span>
+        <NavLink to="/signin">SIGN IN</NavLink>
+        <NavLink to="/signup">SIGN UP</NavLink>
+      </span>
     )
     }
   }
@@ -26,7 +26,7 @@ class Navbar extends Component {
 
     return (
       <nav className="navbar">
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/">HOME</NavLink>
         {this.renderLinks()}
       </nav>
     )

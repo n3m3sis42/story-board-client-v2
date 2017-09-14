@@ -1,7 +1,13 @@
 body {
-  background-color: #4dd0e1;
-  margin-left: 20px;
-  margin-right: 20px;
+  /*background-image: linear-gradient(top, #30007F, #4800BF, #5600E5, #6000FF);*/
+  background-image: linear-gradient(left, #4527A0, #5E35B1, #673AB7, #7E57C2, #9575CD, #B39DDB);
+  margin-bottom: 20px;
+  height:2000px;
+  color: #180040;
+}
+
+a {
+  color: #180040;
 }
 
 textarea {
@@ -14,19 +20,10 @@ textarea {
   position: relative;
 }
 
-.navbar {
-  background-color: #180040;
-}
-
-.navbar a {
-  display: inline;
-  float: right;
-  font-size: 16px;
-  padding: 0px 5px;
-}
-
 #scene-container {
   position:relative;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 #scene-container .Scenes-container {
@@ -57,13 +54,33 @@ textarea {
   width:100%;
 }
 
+.navbar {
+  background-color: #180040;
+  padding: 10px 20px;
+}
+
+nav {
+  text-align:right;
+}
+
+nav a {
+  padding-left: 20px;
+  color: #FFFFFF;
+}
+
 .header {
   border-radius: 10px;
+  font-size: 20px;
   text-align: center;
-  margin: 20px 0px;
-  height: 60px;
+  margin: 20px;
+  height: 80px;
   padding: 20px;
-  background-color: #80deea;
+  background-color: #D1C4E9;
+}
+
+.banner {
+  text-align: center;
+  font-size: 20px;
 }
 
 .controls {
@@ -79,6 +96,7 @@ textarea {
   font-size: 11px;
   cursor: pointer;
   padding: 10px;
+  margin-right: 20px;
   float: right;
 }
 
@@ -112,7 +130,7 @@ textarea {
   padding: 10px;
   font-size: 11px;
   text-align: left;
-  background-color: #80deea;
+  background-color: #D1C4E9;
 }
 
 .tile-delete {
@@ -155,7 +173,7 @@ textarea {
 }
 
 .tile-input:focus {
-  border: solid 1px #757575;
+  border: solid 1px #673AB7;
 }
 
 .project-list-item {
@@ -164,26 +182,35 @@ textarea {
   float: left;
   font-size: 14px;
   text-align: left;
-  background-color: #80deea;
+  background-color: #D1C4E9;
   margin-top: 20px;
   margin-left: 20px;
   padding: 20px;
 }
 
 .project-details-item {
-  border-radius: 10px;  
+  border-radius: 10px;
   float: left;
-  padding: 20px;
+  padding: 35px;
   width: 90%;
   height: 100%;
   font-size: 14px;
   text-align: left;
-  background-color: #80deea;
+  background-color: #D1C4E9;
   margin: 20px;
 }
 
+ul {
+  padding: 20px;
+}
+
+ul li {
+
+}
+
 .form-input {
-  background: #4dd0e1;
+  background: #673AB7;
+  color: #D1C4E9;
   border: 1px;
   outline: none;
   margin-top: 10px;
@@ -192,7 +219,7 @@ textarea {
 }
 
 .form-input:focus {
-  border: solid 1px #757575;
+  border: solid 1px #6462B7;
 }
 
 .form-btn {

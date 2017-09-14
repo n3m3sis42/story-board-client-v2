@@ -8,7 +8,6 @@ import ReduxThunk from 'redux-thunk'
 import { BrowserRouter as Router } from 'react-router-dom'
 import reducers from './reducers';
 import App from './components/app'
-import Routes from './components/routes'
 import { AUTH_USER } from './actions/auth'
 import registerServiceWorker from './registerServiceWorker';
 

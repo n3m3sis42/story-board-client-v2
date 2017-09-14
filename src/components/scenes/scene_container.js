@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import Scene from './scene'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import Draggable from 'react-draggable'
 import * as sceneActions from '../../actions/scenes'
 
 class SceneContainer extends Component {
@@ -15,53 +14,21 @@ class SceneContainer extends Component {
   addNewScene = () => {
     const projectId = this.props.match.params.id
     const newScene = {
-      title: 'New Scene', status: 'Idea',
+      title: 'New Scene',
+      status: 'Idea',
       notes: '',
-      // x_coord: -720,
-      // y_coord: 0,
       project_id: projectId
     }
     this.props.createScene(newScene)
   }
 
-  getScreenPosition = (scene) => {
-    const { status, x_coord, y_coord } = scene
-    console.log(status, x_coord, y_coord)
-  }
-
   renderScene = (scene) => {
-    this.getScreenPosition(scene)
     return <Scene key={scene.id} scene={scene} {...this.props} />
-  }
-
-  onDragStop = () => {
-
-  }
-
-  newDraggable = (event) => {
-    return (
-      <Draggable
-        axis="both"
-        bounds={'.story-board'}
-        grid={[190, 190]}
-        key={1}
-        defaultPosition={{x: event.clientX, y: event.clientY}}
-        onStop={this.onDragStop}>
-          <div className="tile-container">
-            <div className="tile">
-              stuff
-            </div>
-          </div>
-      </Draggable>
-    )
   }
 
   render() {
     return (
       <div>
-        <div className="Scenes-container header">
-          <h3>Scenes</h3>
-        </div>
         <div className="controls">
           <button className="btn" onClick={this.addNewScene} >
             +
@@ -80,7 +47,7 @@ class SceneContainer extends Component {
             </div>
             <div className="story-board-sidebar-right">
               {_.map(this.props.scenes, scene => {
-                if (scene.status == "Idea") {
+                if (scene.status === "Idea") {
                   return this.renderScene(scene)
                 }
               })}

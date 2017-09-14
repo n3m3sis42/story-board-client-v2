@@ -1,12 +1,10 @@
 import React from 'react'
-import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
-import App from './app'
+import {BrowserRouter as Route, Switch} from 'react-router-dom'
 import SignIn from './auth/signin'
 import SignUp from './auth/signup'
 import SignOut from './auth/signout'
 import SceneContainer from './scenes/scene_container'
 import ProjectContainer from './projects/project_container'
-import SceneList from './scenes/SceneList'
 import PrivateRoute from './PrivateRoute'
 
 export default class Routes extends React.Component{

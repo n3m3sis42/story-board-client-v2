@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as authActions from '../../actions/auth'
 
@@ -97,7 +96,4 @@ function mapStateToProps(state) {
 
 export default reduxForm({
   form: 'SignUpForm'
-})
-(
-  connect(mapStateToProps, authActions)(SignUp)
-)
+})(connect(mapStateToProps, authActions)(SignUp))

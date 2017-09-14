@@ -1,7 +1,6 @@
 import { AUTH_USER } from '../actions/auth'
 import { UNAUTH_USER } from '../actions/auth'
 import { AUTH_ERROR } from '../actions/auth'
-import _ from 'lodash'
 
 export default function(state = {}, action) {
   switch (action.type) {

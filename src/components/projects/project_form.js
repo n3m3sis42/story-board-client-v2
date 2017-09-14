@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createProject } from '../../actions/projects'
-import { Redirect } from 'react-router-dom'
 
 class ProjectForm extends Component {
 
@@ -28,7 +26,7 @@ class ProjectForm extends Component {
 
   onSubmit(values) {
     this.props.createProject(values)
-    this.props.history.goBack()    
+    this.props.history.goBack()
   }
 
   render() {
@@ -37,7 +35,7 @@ class ProjectForm extends Component {
     return (
       <div className="project-list-item">
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <h4>Add New Project</h4>
+          <h3>Add New Project</h3>
           <Field
             label="Project Name: "
             name="name"
@@ -69,5 +67,4 @@ function validate(values) {
 export default reduxForm({
   validate,
   form: 'AddProjectForm'
-  })
-  (connect(null, { createProject })(ProjectForm))
+  })(connect(null, { createProject })(ProjectForm))

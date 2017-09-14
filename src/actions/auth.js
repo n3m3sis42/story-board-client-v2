@@ -1,4 +1,3 @@
-import axios from 'axios'
 import API from '../adapters/api'
 
 const BASE_URL = 'http://localhost:3000/api/v1'

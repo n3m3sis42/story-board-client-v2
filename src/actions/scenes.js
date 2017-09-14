@@ -1,4 +1,3 @@
-import API from '../adapters/api'
 import * as requests from '../adapters/requests'
 const BASE_URL = 'http://localhost:3000/api/v1/scenes'
 

@@ -1,19 +1,9 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { Link, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as authActions from '../../actions/auth'
 
 class SignIn extends Component {
-
-  // componentWillMount () {
-  //   console.log('Mounting')
-  //   if (localStorage.getItem('token')) this.props.history.push('/projects')
-  // }
-  // componentWillUpdate () {
-  //   console.log('Updating')
-  //   if (localStorage.getItem('token')) this.props.history.push('/projects')
-  // }
 
   renderAlert() {
     if (this.props.errorMessage) {
@@ -40,9 +30,7 @@ class SignIn extends Component {
   }
 
   onSubmit({ email, password }) {
-    console.log(this.props)
     this.props.signUserIn({ email, password })
-    console.log(this.props)
   }
 
   render() {
@@ -74,6 +62,4 @@ function mapStateToProps(state) {
 
 export default reduxForm({
   form: 'SignInForm'
-})
-(connect(mapStateToProps, authActions)(SignIn)
-)
+})(connect(mapStateToProps, authActions)(SignIn))

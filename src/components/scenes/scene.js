@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import React, { Component } from 'react'
 import Draggable from 'react-draggable'
 import SceneForm from './scene_form'
@@ -19,8 +18,7 @@ export default class Scene extends Component {
   }
 
   onDragStop = (e, ui) => {
-    const { lastX, lastY, deltaX, deltaY, x, y } = ui
-    console.log(lastX, lastY, ui.x, ui.y, e, ui)
+    const { lastX, lastY, deltaX, deltaY } = ui
     const data = { ...this.props.scene, x_coord: lastX, y_coord: lastY }
     if (deltaX !== 0 || deltaY !== 0) {
       this.props.updateScene(data)
@@ -45,7 +43,6 @@ export default class Scene extends Component {
   }
 
   render() {
-    const scene = this.props
     const { scene: { id, x_coord, y_coord } } = this.props
     const dragHandlers = {onStop: this.onDragStop, onStart: this.onDragStart}
     const position = (x_coord || y_coord) ? {x: x_coord, y: y_coord} : {x: null, y: null}

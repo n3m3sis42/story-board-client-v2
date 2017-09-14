@@ -11,7 +11,7 @@ export default class SceneCard extends Component {
   }
 
   render() {
-    const { id, title, notes } = this.props.children
+    const { title, notes } = this.props.children
 
     return (
       <div>

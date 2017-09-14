@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
-import { Route, Redirect, Switch} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as projectActions from '../../actions/projects'
@@ -8,7 +8,6 @@ import Project from './project'
 import ProjectForm from './project_form'
 import PrivateRoute from '../PrivateRoute'
 import SceneList from '../scenes/SceneList'
-import SceneContainer from '../scenes/scene_container'
 
 class ProjectContainer extends Component {
 
@@ -29,14 +28,9 @@ class ProjectContainer extends Component {
   }
 
   render() {
-    console.log(this.props.match.params.id)
-    console.log(this.props)
 
     return (
       <div>
-          <div className="Projects-container header">
-            <h3>Projects</h3>
-          </div>
           <div className="controls">
             <button className="Projects-container btn" onClick={this.addNewProject} >
               +
