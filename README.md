@@ -11,6 +11,9 @@ This app allows you to storyboard your writing project or novel by creating note
 * JavaScript
 * React.js
 * Redux
-* React-Draggable node module
+* Redux-Form
+* Redux-Thunk
+* React-Draggable
+* JWT Authentication
 * Custom CSS
 
