@@ -16,4 +16,5 @@ This app allows you to storyboard your writing project or novel by creating note
 * React-Draggable
 * JWT Authentication
 * Custom CSS
+* Ruby On Rails (API/back end)
 
