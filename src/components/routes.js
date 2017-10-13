@@ -11,15 +11,14 @@ export default class Routes extends React.Component{
   render(){
     return(
         <div>
-        <Switch>
-          <Route exact path={'/signup'} component={SignUp} />
-          <Route exact path={'/signin'} component={SignIn} />
-          <PrivateRoute exact path={'/signout'} component={SignOut} />
-          <PrivateRoute path={'/scenes'} component={SceneContainer} />
-          <PrivateRoute path={'/projects/:id/scenes'} component={SceneContainer} />
-          <PrivateRoute path={'/projects'} component={ProjectContainer} />
-        </Switch>
-
+          <Switch>
+            <Route exact path={'/signup'} component={SignUp} />
+            <Route exact path={'/signin'} component={SignIn} />
+            <PrivateRoute exact path={'/signout'} component={SignOut} />
+            <PrivateRoute path={'/scenes'} component={SceneContainer} />
+            <PrivateRoute path={'/projects/:id/scenes'} component={SceneContainer} />
+            <PrivateRoute path={'/projects'} component={ProjectContainer} />
+          </Switch>
         </div>
     )
   }

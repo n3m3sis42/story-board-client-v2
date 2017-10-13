@@ -30,12 +30,13 @@ class SignIn extends Component {
   }
 
   onSubmit({ email, password }) {
+    console.log(this.props)
     this.props.signUserIn({ email, password })
   }
 
   render() {
     const { handleSubmit } = this.props
-
+    console.log('About to render Signin')
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <Field

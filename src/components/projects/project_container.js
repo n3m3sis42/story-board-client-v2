@@ -1,11 +1,10 @@
-import _ from 'lodash'
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as projectActions from '../../actions/projects'
 import Project from './project'
-import ProjectForm from './project_form'
+import ProjectList from './project_list'
 import PrivateRoute from '../PrivateRoute'
 import SceneList from '../scenes/SceneList'
 
@@ -50,18 +49,6 @@ class ProjectContainer extends Component {
       </div>
     )
   }
-}
-
-
-const ProjectList = (props) => {
-  return (
-    <div>
-      {props.location.pathname === '/projects/new' ? <ProjectForm {...props} /> : null}
-      {_.map(props.projects, project => { return props.renderProject(project) })}
-    </div>
-
-  )
-
 }
 
 function mapStateToProps(state) {

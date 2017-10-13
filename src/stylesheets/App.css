@@ -102,7 +102,7 @@ nav a {
 
 .story-board {
   width: 80%;
-  max-width: 1000px;
+  max-width: 1600px;
   border-radius: 10px;
   overflow: scroll;
   float: left;
@@ -232,5 +232,5 @@ ul li {
 }
 
 .error-text {
-  color: red;
+  color: #180040;
 }

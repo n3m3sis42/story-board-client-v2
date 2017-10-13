@@ -6,7 +6,7 @@ import _ from 'lodash'
 
 export default function(state = {}, action) {
   switch (action.type) {
-    case FETCH_ALL_PROJECTS:    
+    case FETCH_ALL_PROJECTS:
       return _.mapKeys(action.payload.data, 'id')
     case FETCH_PROJECT:
     case CREATE_PROJECT:
