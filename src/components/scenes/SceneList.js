@@ -27,14 +27,17 @@ class SceneList extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     const items = _.map(this.props.scenes, scene => {
       return this.renderOutlineItem(scene) })
+
+    if (items.length === 0) {
+        return <div></div>
+    }
+
     return (
       <ul className='project-details-item'>
         {items}
       </ul>
-
     )
   }
 }
