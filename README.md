@@ -1,5 +1,7 @@
 # README
 
+Story Board is a work in progress. Please [click here](https://www.youtube.com/watch?v=xhQppppPzj0 "Story Board app demo") for an app demo.
+
 ## Story Board (Front End)
 
 (to see the back-end/API repository, go [here](https://github.com/n3m3sis42/story-board-api/ "Story Board API repo"))
